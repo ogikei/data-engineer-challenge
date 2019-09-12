@@ -403,6 +403,7 @@ object Answer extends SparkApp {
       .agg(
         sum('sessionTime) as "sessionTimeSum"
       )
+      .orderBy('sessionTimeSum.desc)
       .write
       .option("encoding", "UTF-8")
       .option("header", "true")
